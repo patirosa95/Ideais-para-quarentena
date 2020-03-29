@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Ideias - Casa critiva</title>
+        {% include "head.html" %}
+
+    </head>
+
+    <body id="page-ideas">
+
+        <div id="container2">
+            <header>
+                <a href="/">
+                    <img src="/logo.png" alt="Imagem da logomarca">
+                </a>
+                
+                <nav>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="#">Ideias</a></li>
+                    <li><a class="button" href="#" onclick="OnOff()">Nova Ideia</a></li>
+                </nav>
+            </header>
+            
+            <section id="title">
+                <p>Em exibição</p>
+                <h1>Idéias</h1>
+            </section>
+
+            <main>
+                <section id="ideas">                  
+                    {% for idea in ideas %}
+
+                        <div class="idea">
+                                <img src="{{idea.image}}" alt="Imagem do curso de {{idea.title}}">
+                            
+                                <div class="content">                                
+                                    <h3>{{idea.title}}</h3>                                
+                                    <p>{{idea.category}}</p>                                
+                                    <div class="description">
+                                        {{idea.description}}
+                                    </div>
+                                    <a href="{{idea.link}}" target="_blank">Ir para a ideia</a>
+                                </div>
+
+                        </div>
+
+                    {% endfor %}
+                 </section>
+            </main>
+
+            <footer>Com ❤️ <a href="http://rocketseat.com.br" target="_blank"> Rocketseat </a></footer>
+        </div>
+             
+
+        {% include "modal.html" %}
+
+        <script src="/scripts.js"></script>
+        
+    </body>
+</html>
